@@ -52,6 +52,9 @@ async function startBot(jobRole, jobLocation, limit) {
         }
 
         try {
+            await page.waitForSelector('#searchBar-jobTitle', { visible: true, timeout: 10000 });
+            await page.waitForSelector('#searchBar-location', { visible: true, timeout: 10000 });
+
             await page.click('#searchBar-jobTitle');
             await page.type('#searchBar-jobTitle', `${jobRole}`, { delay: 100 });
 
